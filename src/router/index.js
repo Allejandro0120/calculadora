@@ -7,8 +7,10 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'CalculadoraView',
+    component: function () {
+      return import(/* webpackChunkName: "calculadora" */ '../views/Calculadora.vue')
+    }
   },
   {
     path: '/about',
@@ -18,6 +20,13 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
+    }
+  },
+  {
+    path: '/calculadora',
+    name: 'Calculadora',
+    component: function () {
+      return import(/* webpackChunkName: "calculadora" */ '../views/Calculadora.vue')
     }
   }
 ]
